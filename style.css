@@ -108,7 +108,7 @@ ul {
     transition: 0.4s;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 550px) {
     .menu-icon {
         display: flex;
     }
@@ -139,7 +139,7 @@ ul {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 550px) {
     .nav {
         padding: 15px 20px;
         flex-wrap: wrap;
