@@ -12,7 +12,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: rgb(255, 254, 254);
+    background-color: rgb(255, 255, 255);
     padding: 15px 50px;
     position: sticky;
     top: 0;
@@ -27,7 +27,7 @@ body {
 }
 
 .logo {
-    width: 60px;
+    width: 90px;
     height: 60px;
     cursor: pointer;
 }
@@ -35,6 +35,7 @@ body {
 .name {
     font-weight: bold;
     font-size: 22px;
+    color: green;
 }
 
 ul {
@@ -42,6 +43,7 @@ ul {
     gap: 30px;
     list-style: none;
     font-size: 18px;
+    align-items: center;
 }
 
 .element {
@@ -54,6 +56,14 @@ ul {
     text-decoration: underline;
     transform: scale(1.1);
 }
+.register{
+    width: 121px;
+    height:39px;
+    font-size: large;
+    border-radius: 10px ;
+    background-color: rgb(71, 160, 71);
+    border: 2px ;
+}
 .content {
     background-image: url('pexels-todd-trapani-488382-1420440.jpg');
     background-size: cover;
@@ -63,22 +73,146 @@ ul {
     opacity: 0.7;
 }
 .about {
-    display: flex;
-    justify-content: center;
+    border-radius: 20px;
     margin-top: 50px;
     font-size: 24px;
     font-weight: bold;
+    width: 80vw;
+    height: 500px;
+    background: linear-gradient(to right bottom, #87E4F2 0%, #548DFE 100%);
+    box-shadow: 12px 10px 11px #87E4F2;
 }
+.text{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: xx-large;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.shadow{
+    display: flex;
+    justify-content: center;
+}
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: green;
+    transition: 0.4s;
+}
+
 @media (max-width: 768px) {
-    .nav {
+    .menu-icon {
+        display: flex;
+    }
+    
+    .nav ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: white;
+        padding: 20px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .nav ul.active {
+        display: flex;
         flex-direction: column;
         gap: 15px;
-        text-align: center;
+    }
+    
+    .nav {
+        position: relative;
+    }
+    
+    .element:hover {
+        transform: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav {
+        padding: 15px 20px;
+        flex-wrap: wrap;
+    }
+
+    .logo-container {
+        width: 100%;
+        /* justify-content:; */
+    }
+
+    .menu-icon {
+        display: flex;
+        order: 1;
+        margin-left: 450px;
+        margin-top: -61px;
     }
 
     ul {
+        display: none;
+        width: 100%;
+        position: static;
+        padding: 0;
+        margin-top: 15px;
+    }
+
+    ul.active {
+        display: flex !important;
         flex-direction: column;
-        gap: 10px;
+    }
+
+    .element {
+        padding: 12px 0;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .register {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .content {
+        height: 400px;
+    }
+
+    .about {
+        width: 90%;
+        height: auto;
+        padding: 20px 0;
+    }
+
+    .box2 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .video, video {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+        margin: 10px 0;
+    }
+
+    .text2 p {
+        margin: 20px;
+        text-align: center;
+    }
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .element:hover {
+        font-weight: bold;
+        text-decoration: underline;
+        transform: scale(1.1);
     }
 }
 .box{
@@ -94,4 +228,26 @@ ul {
 .dese{
     display: grid;
     grid-template-columns: 1fr 1fr;
+}
+video{
+    height: 351px;
+    width: 500px;
+    border-radius: 10px;
+}
+.text2 p{
+    margin-top: 50px;
+    margin-left: 40px;
+    margin-right: 20px;
+}
+.video{
+    height: 351px;
+    width: 500px;
+    background-color: black;
+    margin-top: 50px;
+    margin-left: 20px;
+}
+.box2{
+display: flex;
+justify-content: space-between;
+
 }
