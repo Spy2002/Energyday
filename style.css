@@ -108,12 +108,9 @@ h2{
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    margin-bottom: 50px;
     font-size: xx-large;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-.shadow{
-    display: flex;
-    justify-content: center;
 }
 .menu-icon {
     display: none;
@@ -143,13 +140,19 @@ h2{
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
+.box2{
+    display: flex;
+    justify-content: center;
+    /* flex-wrap: wrap; */
+    padding: 20px;
+    }
 video{
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 .text2 p{
-    margin: 20px;
+
     text-align: justify;
 }
 .video{
@@ -159,13 +162,95 @@ video{
     background-color: black;
     margin-top: 20px;
     margin-left: 20px;
+    margin-right: 20px;
     aspect-ratio: 15/9;
     background: linear-gradient(to right bottom, #87E4F2 0%, #548DFE 100%);
 
 }
-.box2{
-display: flex;
-justify-content: center;
-/* flex-wrap: wrap; */
-padding: 20px;
+.shadow{
+    display: flex;
+    justify-content: center;
+}
+.research{
+    display: flex;   
+}
+.research0{
+    height: auto;
+}
+.grid {
+    display: grid;
+    grid-template-columns: 30vw 30vw;
+    gap: 50px;
+    justify-content: center;
+    padding: 20px;
+    max-width: 30vw; 
+    margin: auto;
+}
+.box {
+    background-color: #007bb5;
+    width: 100%;
+    height: 350px;
+    border-radius: 10px;
+}
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+.section {
+    padding: 20px;
+}
+.section h2 {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    position: relative;
+}
+.section h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: #00aaff;
+    margin: 5px auto;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.card {
+    background-color: #4a2ebc;
+    color: white;
+    width: 200px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+}
+.card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 3px solid white;
+}
+.card h3 {
+    margin-top: 50px;
+    font-size: 18px;
+}
+.footer {
+    background-color: #210b61;
+    color: white;
+    padding: 20px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
 }
