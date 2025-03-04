@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Energy Day 2023 Student Presentations</title>
+    <style>
+      /* Reset & Base Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        color: #333;
+        background-color: #fff;
+        line-height: 1.4;
+        padding-top: 80px; /* Space for fixed header */
+      }
+
+      /* Header */
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        border-bottom: 1px solid #d9d9d9;
+        background-color: #d9d9d9;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: green; /* Matches the “ED” logo color */
+        padding-left: 1rem;
+      }
+      .logo img {
+        width: 96px;
+        height: 63px;
+        margin-right: 0.5rem;
+      }
+
+      /* Header Section */
+      .main-header {
+        text-align: center;
+        padding: 30px 20px;
+        scroll-margin-top: 70px; /* For back to top button */
+      }
+
+      .main-header h1 {
+        color: #4a6741;
+        margin-bottom: 20px;
+        font-weight: normal;
+      }
+
+      /* Content */
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Buttons */
+      .action-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin: 20px 0;
+      }
+
+      .action-link {
+        border: 1px solid #4a6741;
+        border-radius: 4px;
+        padding: 5px 15px;
+        color: #4a6741;
+        background-color: white;
+        text-decoration: none;
+        font-size: 14px;
+        min-width: 200px;
+        text-align: center;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .action-link:hover {
+        background-color: #f0f8f0;
+      }
+
+      .action-link.featured {
+        border-color: #f0ad4e;
+        color: #8a6d3b;
+      }
+
+      /* Info Boxes */
+      .banner {
+        background-color: #a8d8e1;
+        padding: 15px;
+        margin: 20px 0;
+        text-align: center;
+        border-radius: 4px;
+        scroll-margin-top: 80px; /* For smooth scrolling to section */
+      }
+
+      .banner.green {
+        background-color: #a8e1b9;
+      }
+
+      .banner.gold {
+        background-color: #e1cf8a;
+      }
+
+      .banner.purple {
+        background-color: #c3b1e1;
+      }
+
+      /* Content Blocks */
+      .event-item {
+        margin: 20px 0;
+        display: flex;
+      }
+
+      /* Image placeholder */
+      .event-image {
+        width: 200px;
+        height: 150px;
+        background-color: #f2f2f2;
+        margin-right: 15px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #999;
+        font-size: 12px;
+      }
+
+      .event-description {
+        font-size: 12px;
+        color: #666;
+        line-height: 1.5;
+        margin: 0;
+      }
+
+      /* Back to Top Button */
+      .back-to-top {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        background-color: #4a6741;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        transition: background-color 0.3s, transform 0.2s;
+        z-index: 1000;
+      }
+
+      .back-to-top:hover {
+        background-color: #5a7851;
+        transform: scale(1.05);
+      }
+
+      /* Desktop Navigation */
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 1rem;
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: #333;
+        padding: 0.5rem 0.75rem;
+        transition: background-color 0.3s;
+      }
+      nav ul li a:hover {
+        background-color: #f0f0f0;
+      }
+      .register-btn {
+        background-color: green; /* Green “Register” button */
+        color: #fff;
+        border-radius: 4px;
+        padding: 0.5rem 1rem;
+      }
+
+      /* Mobile Menu Container: Wraps the hamburger and dropdown */
+      .mobile-menu-container {
+        display: flex;
+        align-items: center;
+      }
+
+      /* Hamburger Icon (Hidden by default) */
+      .menu-toggle {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      /* Responsive Navigation (Dropdown) */
+      @media (max-width: 768px) {
+        /* Hide the desktop nav */
+        nav ul {
+          display: none;
+        }
+        .menu-toggle {
+          display: block;
+        }
+        .mobile-menu-container {
+          position: relative; /* This container becomes the positioning context */
+        }
+        nav ul {
+          flex-direction: column;
+          position: absolute;
+          top: 100%; /* Position just below the toggle button */
+          left: 80%; /* Start at the horizontal center of the container */
+          transform: translateX(-90%);
+          background-color: #fff;
+          min-width: 150px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          padding: 1rem 0;
+          text-align: center; /* Center-align the text */
+        }
+        nav ul.show-menu {
+          display: flex;
+        }
+        nav ul li {
+          width: 100%;
+          position: relative;
+        }
+        nav ul li a {
+          display: block;
+          width: 100%;
+          padding: 0rem 0;
+          text-align: center;
+        }
+      }
+
+      /* Main Title */
+      .main-title {
+        text-align: center;
+        margin: 2rem 0 1rem 0;
+        color: #516141; /* Title in green */
+        font-size: 2.5rem; /* Reduced from 80px for better responsiveness */
+      }
+      .subtitle {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 1.5rem auto;
+        color: #555;
+        line-height: 1.6;
+      }
+
+      /* Button Container (Below Subtitle) */
+      .button-container {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+      .button-container a {
+        text-decoration: none;
+        background-color: #008000;
+        color: #fff;
+        padding: 0.75rem 1.25rem;
+        border-radius: 4px;
+      }
+      .button-container a:hover {
+        background-color: #006400;
+      }
+
+      /* Repeated Sections for Student Presentations */
+      .presentation-block {
+        max-width: 1200px;
+        margin: 0 auto 2rem auto;
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        border-radius: 8px;
+      }
+      /* Alternate text/image positioning */
+      .presentation-block.reverse {
+        flex-direction: row-reverse;
+      }
+
+      /* Heading for each block */
+      .presentation-block h2 {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        color: #333;
+      }
+
+      /* Paragraph text inside each block */
+      .presentation-block p {
+        line-height: 1.6;
+        color: #555;
+      }
+
+      /* Grey box as image placeholder */
+      .img-placeholder {
+        flex: 1;
+        min-height: 200px;
+        background-color: #ccc;
+        border-radius: 8px;
+      }
+      /* Text content in each block */
+      .block-text {
+        flex: 2;
+      }
+
+      /* Example background colors for demonstration */
+      .bg1 {
+        background-color: #e5f1ef;
+      }
+      .bg2 {
+        background-color: #fff0b3;
+      }
+      .bg3 {
+        background-color: #b3e6ff;
+      }
+      .bg4 {
+        background-color: #ffd1dc;
+      }
+      .bg5 {
+        background-color: #d8f3dc;
+      }
+      .bg6 {
+        background-color: #fde1c7;
+      }
+
+      /* Footer */
+      footer {
+        display: flex;
+        justify-content: space-between;
+        padding: 2rem;
+        background-color: #003366; /* Dark blue footer */
+        color: #fff;
+      }
+      .footer-left,
+      .footer-right {
+        width: 45%;
+      }
+      .footer-left h3,
+      .footer-right h3 {
+        margin-bottom: 1rem;
+      }
+      .footer-left p,
+      .footer-right p {
+        line-height: 1.6;
+      }
+
+      /* Dropdown for Past Highlights (Desktop) */
+      nav ul li.dropdown {
+        position: relative;
+      }
+      nav ul li.dropdown .dropdown-menu {
+        white-space: nowrap;
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        background-color: #fff;
+        min-width: 150px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+      }
+      nav ul li.dropdown:hover .dropdown-menu {
+        display: block;
+      }
+      nav ul li.dropdown .dropdown-menu li a {
+        display: inline-block;
+        margin-right: 1rem;
+        padding: 0.5rem 0.75rem;
+        text-align: left;
+        color: #333;
+      }
+      nav ul li.dropdown .dropdown-menu li a:hover {
+        background-color: #f0f0f0;
+      }
+      nav ul li.dropdown .dropdown-menu li:last-child {
+        margin-right: 0;
+      }
+
+      /* Mobile adjustments within your existing media query */
+      @media (max-width: 768px) {
+        nav ul li.dropdown .dropdown-menu {
+          white-space: normal;
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background-color: #fff;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          margin: 0;
+          padding: 0;
+          z-index: 1000;
+        }
+        nav ul li.dropdown .dropdown-menu.show-dropdown {
+          display: block;
+          margin: 0.5rem 0;
+        }
+
+        /* Presentation blocks become vertical stacks */
+        .presentation-block {
+          flex-direction: column;
+          text-align: center;
+        }
+        .presentation-block.reverse {
+          flex-direction: column;
+        }
+        .img-placeholder {
+          width: 100%;
+          min-height: 150px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <div class="logo">
+        <img src="ed-final-logo-.png" alt="Computer Man" />
+        <div>Energy Day</div>
+      </div>
+      <div class="mobile-menu-container">
+        <div class="menu-toggle">&#9776;</div>
+        <nav>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Events</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle">Past Highlights</a>
+              <ul class="dropdown-menu">
+                <li><a href="index.html">2024 Highlights</a></li>
+                <li>
+                  <a href="2024 presentations.html"
+                    >2024 Student Presentations</a
+                  >
+                </li>
+                <li>
+                  <a href="student presentations.html"
+                    >2023 Student Presentations</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li><a href="#">Sponsor</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Team</a></li>
+            <li><a href="#" class="register-btn">Register</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Header Section -->
+    <div id="top" class="main-header">
+      <h1>Energy Day 2024</h1>
+      <h2>Student Presentations</h2>
+    </div>
+
+    <!-- Content -->
+    <div class="container">
+      <!-- Buttons -->
+      <div class="action-links">
+        <a href="#section1" class="action-link"
+          >Advanced Combustion and Energy Conversion & Storage Technologies</a
+        >
+        <a href="#section2" class="action-link"
+          >Power Electronics and Smart Grids</a
+        >
+        <a href="#section3" class="action-link featured"
+          >Renewable Energy and Sustainability</a
+        >
+      </div>
+
+      <!-- Info Box -->
+      <div id="section1" class="banner">
+        Advanced Combustion and Energy Conversion & Storage Technologies
+      </div>
+
+      <!-- Content Blocks with Image Placeholders -->
+      <div class="event-item">
+        <div class="event-image">
+          <img src="/api/placeholder/200/150" alt="Placeholder Image" />
+        </div>
+        <p class="event-description">
+          Energy Day is The Flagship Annual Event Of The Department Of Energy
+          Science And Engineering (DESE) Bombay, celebrated every Year during
+          Spring Semester. Energy Day serves as a platform to foster knowledge
+          Exchange in Energy field and its interdisciplinary Applications.
+          Energy Day brings together Experts From Academia, Industry, Research
+          Institute, Energy Policy Partnerships And Government to discuss And
+          Examine solutions for Energy Challenges Around the Program on
+          Engaging, Thought-provoking Discussions on cutting-edge Research And
+          technological And Environmental, Emerging Trends And International
+          Cooperation In Energy Policy. The Event Also Showcases Students
+          Research, Learning And Networking. It's A Celebration Of Ideas And A
+          Step Towards Building A Sustainable Energy Future.
+        </p>
+      </div>
+
+      <div class="event-item">
+        <div class="event-image">
+          <img src="/api/placeholder/200/150" alt="Placeholder Image" />
+        </div>
+        <p class="event-description">
+          Energy Day is The Flagship Annual Event Of The Department Of Energy
+          Science And Engineering (DESE) Bombay, celebrated every Year during
+          Spring Semester. Energy Day serves as a platform to foster knowledge
+          Exchange in Energy field and its interdisciplinary Applications.
+          Energy Day brings together Experts From Academia, Industry, Research
+          Institute, Energy Policy Partnerships And Government to discuss And
+          Examine solutions for Energy Challenges Around the Program on
+          Engaging, Thought-provoking Discussions on cutting-edge Research And
+          technological And Environmental, Emerging Trends And International
+          Cooperation In Energy Policy. The Event Also Showcases Students
+          Research, Learning And Networking. It's A Celebration Of Ideas And A
+          Step Towards Building A Sustainable Energy Future.
+        </p>
+      </div>
+
+      <div class="event-item">
+        <div class="event-image">
+          <img src="/api/placeholder/200/150" alt="Placeholder Image" />
+        </div>
+        <p class="event-description">
+          Energy Day is The Flagship Annual Event Of The Department Of Energy
+          Science And Engineering (DESE) Bombay, celebrated every Year during
+          Spring Semester. Energy Day serves as a platform to foster knowledge
+          Exchange in Energy field and its interdisciplinary Applications.
+          Energy Day brings together Experts From Academia, Industry, Research
+          Institute, Energy Policy Partnerships And Government to discuss And
+          Examine solutions for Energy Challenges Around the Program on
+          Engaging, Thought-provoking Discussions on cutting-edge Research And
+          technological And Environmental, Emerging Trends And International
+          Cooperation In Energy Policy. The Event Also Showcases Students
+          Research, Learning And Networking. It's A Celebration Of Ideas And A
+          Step Towards Building A Sustainable Energy Future.
+        </p>
+      </div>
+
+      <!-- Info Box -->
+      <div id="section2" class="banner green">
+        Power Electronics and Smart Grids
+      </div>
+
+      <!-- More Content Blocks with Image Placeholders -->
+      <div class="event-item">
+        <div class="event-image">
+          <img src="/api/placeholder/200/150" alt="Placeholder Image" />
+        </div>
+        <p class="event-description">
+          Energy Day is The Flagship Annual Event Of The Department Of Energy
+          Science And Engineering (DESE) Bombay, celebrated every Year during
+          Spring Semester. Energy Day serves as a platform to foster knowledge
+          Exchange in Energy field and its interdisciplinary Applications.
+          Energy Day brings together Experts From Academia, Industry, Research
+          Institute, Energy Policy Partnerships And Government to discuss And
+          Examine solutions for Energy Challenges Around the Program on
+          Engaging, Thought-provoking Discussions on cutting-edge Research And
+          technological And Environmental, Emerging Trends And International
+          Cooperation In Energy Policy. The Event Also Showcases Students
+          Research, Learning And Networking. It's A Celebration Of Ideas And A
+          Step Towards Building A Sustainable Energy Future.
+        </p>
+      </div>
+
+      <div class="event-item">
+        <div class="event-image">
+          <img src="/api/placeholder/200/150" alt="Placeholder Image" />
+        </div>
+        <p class="event-description">
+          Energy Day is The Flagship Annual Event Of The Department Of Energy
+          Science And Engineering (DESE) Bombay, celebrated every Year during
+          Spring Semester. Energy Day serves as a platform to foster knowledge
+          Exchange in Energy field and its interdisciplinary Applications.
+          Energy Day brings together Experts From Academia, Industry, Research
+          Institute, Energy Policy Partnerships And Government to discuss And
+          Examine solutions for Energy Challenges Around the Program on
+          Engaging, Thought-provoking Discussions on cutting-edge Research And
+          technological And Environmental, Emerging Trends And International
+          Cooperation In Energy Policy. The Event Also Showcases Students
+          Research, Learning And Networking. It's A Celebration Of Ideas And A
+          Step Towards Building A Sustainable Energy Future.
+        </p>
+      </div>
+
+      <div class="event-item">
+        <div class="event-image">
+          <img src="/api/placeholder/200/150" alt="Placeholder Image" />
+        </div>
+        <p class="event-description">
+          Energy Day is The Flagship Annual Event Of The Department Of Energy
+          Science And Engineering (DESE) Bombay, celebrated every Year during
+          Spring Semester. Energy Day serves as a platform to foster knowledge
+          Exchange in Energy field and its interdisciplinary Applications.
+          Energy Day brings together Experts From Academia, Industry, Research
+          Institute, Energy Policy Partnerships And Government to discuss And
+          Examine solutions for Energy Challenges Around the Program on
+          Engaging, Thought-provoking Discussions on cutting-edge Research And
+          technological And Environmental, Emerging Trends And International
+          Cooperation In Energy Policy. The Event Also Showcases Students
+          Research, Learning And Networking. It's A Celebration Of Ideas And A
+          Step Towards Building A Sustainable Energy Future.
+        </p>
+      </div>
+
+      <!-- Info Box -->
+      <div id="section3" class="banner gold">
+        Renewable Energy and Sustainability
+      </div>
+
+      <!-- More Content Blocks with Image Placeholders -->
+      <div class="event-item">
+        <div class="event-image">
+          <img src="/api/placeholder/200/150" alt="Placeholder Image" />
+        </div>
+        <p class="event-description">
+          Energy Day is The Flagship Annual Event Of The Department Of Energy
+          Science And Engineering (DESE) Bombay, celebrated every Year during
+          Spring Semester. Energy Day serves as a platform to foster knowledge
+          Exchange in Energy field and its interdisciplinary Applications.
+          Energy Day brings together Experts From Academia, Industry, Research
+          Institute, Energy Policy Partnerships And Government to discuss And
+          Examine solutions for Energy Challenges Around the Program on
+          Engaging, Thought-provoking Discussions on cutting-edge Research And
+          technological And Environmental, Emerging Trends And International
+          Cooperation In Energy Policy. The Event Also Showcases Students
+          Research, Learning And Networking. It's A Celebration Of Ideas And A
+          Step Towards Building A Sustainable Energy Future.
+        </p>
+      </div>
+
+      <div class="event-item">
+        <div class="event-image">
+          <img src="/api/placeholder/200/150" alt="Placeholder Image" />
+        </div>
+        <p class="event-description">
+          Energy Day is The Flagship Annual Event Of The Department Of Energy
+          Science And Engineering (DESE) Bombay, celebrated every Year during
+          Spring Semester. Energy Day serves as a platform to foster knowledge
+          Exchange in Energy field and its interdisciplinary Applications.
+          Energy Day brings together Experts From Academia, Industry, Research
+          Institute, Energy Policy Partnerships And Government to discuss And
+          Examine solutions for Energy Challenges Around the Program on
+          Engaging, Thought-provoking Discussions on cutting-edge Research And
+          technological And Environmental, Emerging Trends And International
+          Cooperation In Energy Policy. The Event Also Showcases Students
+          Research, Learning And Networking. It's A Celebration Of Ideas And A
+          Step Towards Building A Sustainable Energy Future.
+        </p>
+      </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <a href="#top" class="back-to-top" title="Back to Top">↑</a>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-left">
+        <h3>Contact</h3>
+        <p>
+          DESE Office<br />
+          Address line 1<br />
+          Address line 2<br />
+          Phone: 123-456-7890<br />
+          Fax: 098-765-4321<br />
+          Email: info@example.com
+        </p>
+      </div>
+      <div class="footer-right">
+        <h3>Connect With Us</h3>
+        <p>Placeholder for social media links or any other info.</p>
+      </div>
+    </footer>
+
+    <!-- JavaScript to toggle the dropdown menu -->
+    <script>
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navMenu = document.querySelector("nav ul");
+      menuToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("show-menu");
+      });
+      // For mobile: toggle Past Highlights dropdown on tap
+      const dropdownToggles = document.querySelectorAll(
+        "nav ul li.dropdown > a.dropdown-toggle"
+      );
+      dropdownToggles.forEach((toggle) => {
+        toggle.addEventListener("click", function (e) {
+          if (window.innerWidth <= 768) {
+            e.preventDefault();
+            const dropdownMenu = this.nextElementSibling;
+            dropdownMenu.classList.toggle("show-dropdown");
+          }
+        });
+      });
+    </script>
+    <script>
+      // JavaScript for smooth scrolling
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
