@@ -5,17 +5,17 @@
 }
 
 body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        margin: 0;
-        padding: 0;
-        background-color: #f5f5f5;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background-color: #f8f8f8;
-     }
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f8f8;
+}
 
 .nav {
     width: 100vw;
@@ -42,6 +42,7 @@ body {
     height: 60px;
     cursor: pointer;
 }
+
 .name {
     font-weight: bold;
     font-size: 22px;
@@ -60,15 +61,18 @@ ul {
     cursor: pointer;
     transition: all 0.3s ease-in-out;
 }
-.active{
+
+.active {
     text-decoration: underline;
     font-weight: 700;
 }
-a:link{
+
+a:link {
     text-decoration: none;
     color: rgb(0, 0, 0);
 }
-a:visited{
+
+a:visited {
     text-decoration: none;
     color: black;
 }
@@ -78,17 +82,20 @@ a:visited{
     text-decoration: underline;
     transform: scale(1.1);
 }
-.register{
+
+.register {
     width: 121px;
-    height:39px;
+    height: 39px;
     font-size: large;
-    border-radius: 10px ;
+    border-radius: 10px;
     background-color: rgb(71, 160, 71);
-    border: 2px ;
+    border: 2px;
 }
-.register:hover{
+
+.register:hover {
     transform: scale(1.1);
 }
+
 .menu-icon {
     display: none;
     cursor: pointer;
@@ -96,129 +103,206 @@ a:visited{
     gap: 5px;
     padding: 10px;
 }
-h1{
+
+h1 {
     margin-top: 30px;
     color: #516141;
 }
-h2{
+
+h2 {
     margin-top: 50px;
     color: #516141;
 }
-.active{
+
+.active {
     text-decoration: underline;
     font-weight: 700;
 }
-.overall-coordinators { color: #5a3d3d; }
-        .corporate-managers { color: #3d4d2f; }
-        .logistics-managers { color: #4a646c; }
-.section-title{
+
+.overall-coordinators {
+    color: #5a3d3d;
+}
+
+.corporate-managers {
+    color: #3d4d2f;
+}
+
+.logistics-managers {
+    color: #4a646c;
+}
+
+.section-title {
     margin-bottom: 20px;
 }
-        .team-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-bottom: 40px;
-        }
 
-        .team-member {
-            background-color: white;
-            padding: 10px;
-            border-radius: 8px;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-            width: 120px;
-            text-align: center;
-        }
+.team-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 40px;
+}
 
-        .team-member img {
-            width: 100%;
-            border-radius: 5px;
-        }
+.team-member {
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    width: 120px;
+    text-align: center;
+}
 
-        .team-member p {
-            font-size: 0.9em;
-            color: #333;
-            margin-top: 5px;
-        }
-        .footer {
-            background-color: #210b61;
-            color: white;
-            padding: 20px;
-            margin-top: 20px;
-            display: flex;
-            justify-content: space-between;
-            width: 100vw;
-        }
-        
+.team-member img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.team-member p {
+    font-size: 0.9em;
+    color: #333;
+    margin-top: 5px;
+}
+
+.footer {
+    background-color: #210b61;
+    color: white;
+    padding: 20px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+}
+.card {
+    position: relative;
+    width: 250px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.card img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+}
+
+.card .info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 10px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+}
+
+.card:hover .info {
+    transform: translateY(0);
+}
+
+.card h3 {
+    margin: 5px 0;
+}
+
+.card p, .card a {
+    font-size: 14px;
+    margin: 2px 0;
+}
+
+.card a {
+    color: #1DA1F2;
+    text-decoration: none;
+}
+.social-icons a img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+    margin: 10px;
+}
+
+.social-icons a img:hover {
+    transform: scale(1.2);
+}
+
+.teamCM {
+    display: flex;
+}
+
 @media (max-width: 600px) {
-        .nav {
-            padding: 15px 20px;
-            justify-content: space-between;
-        }
-    
-        .logo-container {
-            order: -1;
-            margin-left: 0px;
-    
-                }
-    
-        .menu-icon {
-            display: flex;
-            order: 1;
-            margin-left: auto;
-            margin-top: 0px;
-        }
-            .menu-icon {
-                display: flex;
-            }
-            
-            .nav ul {
-                display: none;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                right: 0;
-                background-color: white;
-                padding: 20px;
-                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            }
-            
-            .nav ul.active {
-                display: flex;
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .nav {
-                position: relative;
-            }
-            
-            .element:hover {
-                transform: none;
-            }
-        ul {
-            display: none;
-            width: 100%;
-            position: static;
-            padding: 0;
-            margin-top: 15px;
-        }
-    
-        ul.active {
-            display: flex !important;
-            flex-direction: column;
-        }
-    
-        .element {
-            padding: 12px 0;
-            border-bottom: 1px solid #ddd;
-        }
-    
-        .register {
-            width: 100%;
-            margin-top: 10px;
-        }    
+    .nav {
+        padding: 15px 20px;
+        justify-content: space-between;
+    }
+
+    .logo-container {
+        order: -1;
+        margin-left: 0px;
+
+    }
+
+    .menu-icon {
+        display: flex;
+        order: 1;
+        margin-left: auto;
+        margin-top: 0px;
+    }
+
+    .menu-icon {
+        display: flex;
+    }
+
+    .nav ul {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background-color: white;
+        padding: 20px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav ul.active {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav {
+        position: relative;
+    }
+
+    .element:hover {
+        transform: none;
+    }
+
+    ul {
+        display: none;
+        width: 100%;
+        position: static;
+        padding: 0;
+        margin-top: 15px;
+    }
+
+    ul.active {
+        display: flex !important;
+        flex-direction: column;
+    }
+
+    .element {
+        padding: 12px 0;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .register {
+        width: 100%;
+        margin-top: 10px;
+    }
+
     .event {
         flex-direction: column;
         text-align: center;
