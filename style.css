@@ -113,7 +113,7 @@ a:visited{
     background-image: url('DESE2.jpg');
     background-size: cover;
     background-position: center;
-    opacity: 0.1;  /* Adjust this value for desired transparency */
+    opacity: 0.4;  /* Adjust this value for desired transparency */
     z-index: -1;   /* Places it behind the content */
 }
 .ED{
@@ -340,7 +340,7 @@ video{
     transition: transform 0.3s ease-in-out;
     overflow: hidden;
     position: relative;
-    height: 200px;
+    height: 250px;
 }
 .profile {
     width: 100px;
