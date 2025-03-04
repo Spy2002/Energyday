@@ -3,94 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>register</title>
+    <title>Register</title>
     <style>
-        .container{
-            height: 400px;
-            width: 800px;
-            background-color: #E6F4F1;
-            margin-left: 150px;
-        }
-        .text{
-            display: flex;
-            padding: 60px;
-         align-items: center;
-         justify-content: center;
-         font-size: xx-large;
-         font-weight: bolder;
-        }
-        /* .options ul{
-            display: flex;
-            list-style: none;
-            justify-content:space-around; */
-        /* } */
-        .options{
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            /* justify-content: center; */
-            
-        }
-        .option{
-            /* background-color: white; */
-            /* padding: 10px; */
-            margin-left: 40px;
-            font-size: x-large;
-            /* border: 2px solid; */
-            padding: px;
-            margin-right: 40px;
-            width: 150px;
-            height: 40px;
-            background-color: white;
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;}
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f8f8;    
+}
+
+.nav {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #D9D9D9;
+    padding: 15px 50px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* order: -1; */
+}
+
+.logo {
+    width: 90px;
+    height: 60px;
+    cursor: pointer;
+}
+.name {
+    font-weight: bold;
+    font-size: 22px;
+    color: green;
+}
+
+ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    font-size: 18px;
+    align-items: center;
+}
+
+.element {
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.element:hover {
+    font-weight: bold;
+    text-decoration: underline;
+    transform: scale(1.1);
+}
+.register{
+    width: 121px;
+    height:39px;
+    font-size: large;
+    border-radius: 10px ;
+    background-color: rgb(71, 160, 71);
+    border: 2px ;
+}
+.register:hover{
+    transform: scale(1.1);
+}
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+}a:link{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+a:visited{
+    text-decoration: none;
+    color: black;
+}
+.active{
+    text-decoration: underline;
+    font-weight: 700;
+}
+.announcement {
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 60vh;
         }
-footer{
-    background-color: #00A5E4;
-    width: 800px;
-    height: 143px;
-    margin-top: 60px;
+        .card {
+            background: #22b8cf;
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: left;
+            width: 55%;
+            box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            display: flex;
+            align-items: center;
+            
+        }
+        .card::after {
+            content: "";
+            position: absolute;
+            width: 50vw;
+            height: 50vh;
+            /* background: rgba(0, 0, 0, 0.1); */
+            /* border-radius: 15px; */
+            top: 10px;
+            left: 10px;
+            z-index: -1;
+        }
+        .card img {
+            width: 100px;
+            float: left;
+            margin-right: 20px;
+        }
+        .card p {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .card h3 {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .footer {
+    background-color: #210b61;
+    color: white;
+    padding: 20px;
+    margin-top: 20px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
 }
-.text1{
-  font-size: x-large;
+.social-icons a img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+    margin: 10px;
 }
-.text1:hover{
-    transform: scale(1.2);
-    cursor: pointer;
-}
-.option:hover{
-    transform: scale(1.1);
-    text-decoration: underline;
-    cursor: pointer;
-
-}
-img{
-    width: 40px;
-    height: 40px;
-    padding: 0px;
-    margin: -10px;
-    position: relative;
-
-}
+    .social-icons a img:hover {
+        transform: scale(1.2);
+    }
     </style>
 </head>
 <body>
-    <div class="container">
-      <div class="text">
-        Need Help <img   src="question.png" alt="">
-      </div>
-      <div class="options">
-        <div class="option">About Us</div>
-        <div class="option">Past Events</div>
-        <div class="option">Contact Us</div>
-      </div>
-      <footer>
-       <div class="text1">REGISTER TO ENERGY DAY 2025 NOW</div>
+    <div class="nav">
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="logo-container">
+            <img class="logo" src="Edlogo.png" alt="ED Logo">
+            <div class="name">ENERGY DAY</div>
+        </div>
+        <ul>
+            <li class="element"><a href="http://127.0.0.1:3000/index.html">Home</a></li>
+            <li class="element">Events</li>
+            <li class="element"><a href="http://127.0.0.1:3000/highlight.html">Past Highlights</a></li>
+            <li class="element">Sponsor</li>
+            <li class="element"><a href="http://127.0.0.1:3000/FAQ.html">FAQ</a></li>
+            <li class="element"><a href="http://127.0.0.1:3000/Team.html">Team</a></li>
+            <li>
+                <button class="register active">
+                    Register
+                </button>
+            </li>
 
-      </footer>
-    
+        </ul>
+    </div>
+    <main>
+        <section class="announcement">
+            <div class="card">
+                <img src="dog-illustration.png" alt="Dog Illustration">
+                <p>Registrations Are Not Open Yet—Stay Tuned For Updates! Exciting Announcements Coming Soon. In The Meantime, Explore Highlights From Previous Editions And Revisit The Impactful Moments That Define Energy Day.
+                Follow Us For The Latest Updates.</p>
+            </div>
+        </section>
+    </main>
+    <div class="footer">
+        <div>
+            <h3>Contact</h3>
+            <p>DESE Office Contact<br>Department Of Energy Science And Engineering<br>Indian Institute Of Technology
+                Bombay</p>
+        </div>
+        <div>
+            <h3>Connect With Us</h3>
+            <div class="social-icons">
+                <a href="#"><img src="linkedin logo.png" alt="LinkedIn"></a>
+                <a href="#"><img src="ig logo.png" alt="Instagram"></a>
+                <a href="#"><img src="twitter logo.png" alt="Twitter"></a>
+                <a href="#"><img src="fb logo.png" alt="Facebook"></a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
